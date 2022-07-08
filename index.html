@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="./index.js"></script>
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header>
+        <div class="navbar navbar-dark bg-dark shadow-sm">
+            <div class="container">
+                <a href="#" class="navbar-brand d-flex align-items-center">
+                    <strong>한국어 음운론 변환기</strong>
+                </a>
+            </div>
+        </div>
+    </header>
+    <main>
+        <script>
+            function convert() {
+                var txtArr = document.getElementById('before').value.split(" ");
+                var result = '';
+                for (var i=0;i<txtArr.length;i++) {
+                    result += pipe(txtArr[i]);
+                    result += ' ';
+                }
+                document.getElementById('after').value = result;
+            }
+        </script>
+        <section class="py-3 text-center container">
+            <div class="row py-lg-5">
+                <div class="col-lg-6 col-md-8 mx-auto">
+                    <h1 class="fw-light">한국어 음운론 변환기</h1>
+                    <label for="before" class="form-label">Before</label>
+                    <textarea class="form-control" id="before" rows="3" placeholder="여기에 단어를 입력해주세요." onchange="convert()"></textarea>
+                    <BR/>
+                    <label for="after" class="form-label">After</label>
+                    <textarea class="form-control" id="after" rows="3" placeholder="결과가 나타납니다." readonly></textarea>
+                </div>
+            </div>
+        </section>
+        <section class="text-center container">
+            <div class="row py-lg-5">
+                <div class="col-lg-6 col-md-8 mx-auto">
+                    <h1 class="fw-light">설명</h1>
+                    <p class="lead text-start text-muted">이 프로젝트는 음소변환기 제작을 위해서 개발한 순수 Typescript로 구성된 컴파일러입니다.</p>
+                    <p class="lead text-start text-muted">Duktape 구현체 내부에서 동작시키기 위해서 개발되었으며, 형태소분석기와 같은 이미 제작된 훌륭한 결과물을 사용할 수 없어서 매우 불완전한 컴파일러입니다.</p>
+                    <p class="lead text-start text-muted">(nodejs의 기본 모듈, 네트워크 통신, 딥러닝, 정규식 사용이 불가능)</p>
+                    <p class="lead text-start text-muted">개선을 위해서 좀 더 긴시간의 연구와 실패 사례 데이터가 필요합니다.</p>
+                    <p class="lead text-start text-muted">설문 입력을 통해 연구에 도움을 주시면 감사드리겠습니다.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+</html>
