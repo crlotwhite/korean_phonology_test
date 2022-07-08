@@ -22,7 +22,10 @@
     <main>
         <script>
             function convert() {
-                var txtArr = document.getElementById('before').value.split(" ");
+                var regex = /[!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~]/g;
+                var txt = document.getElementById('before').value;
+                var filtered = txt.replace(regex, '');
+                var txtArr = filtered.split(" ");
                 var result = '';
                 for (var i=0;i<txtArr.length;i++) {
                     result += pipe(txtArr[i]);
